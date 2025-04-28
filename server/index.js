@@ -4,6 +4,7 @@ import connectDB from './database/db.js';
 import userRoute from './routes/user.route.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import courseRoute from "./routes/course.route.js"
 
 
 dotenv.config({});
@@ -13,16 +14,16 @@ connectDB();
 const app = express();
 const PORT =process.env.PORT || 5000;
 
-app.use(express.json()); // middleware to parse json data
+app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5000', // specify the origin url
+    origin: 'http://localhost:5173', 
     credentials: true, 
 }));
 
 //  
-app.use("/api/v1/users", userRoute); //act as middleware
-
+app.use("/api/v1/users", userRoute); 
+app.use("/api/v1/course", courseRoute);
 app.get('/home', (req,res) => {
     res.status(200).json({
         success: true,
