@@ -1,20 +1,35 @@
-import { useTheme } from "./components/ui/ThemeProvider";
-import { Button } from "@/components/ui/button";
-import Navbar from './components/ui/Navbar';
-import Login from './pages/login';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./layout/MainLayout";
+import HeroSection from "./pages/student/HeroSection";
+import Login from "./pages/login";
+import "./App.css";
+import { ThemeProvider } from "./components/ui/ThemeProvider";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <HeroSection />,
+      },
+      {
+        path: "login",
+        element: <Login />
+      }
+    ],
+  },
+]);
 
 function App() {
-  const { theme } = useTheme(); // Get current theme
-
   return (
-    <main className={theme === 'dark' ? 'dark' : ''}>
-      <div className="min-h-screen bg-background text-foreground">
-        <Navbar />
-        <Login />
-      </div>
+    <main>
+      <ThemeProvider>
+      <RouterProvider router={appRouter} />
+      </ThemeProvider>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
