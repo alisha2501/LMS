@@ -6,7 +6,6 @@ import "./App.css";
 import { ThemeProvider } from "./components/ui/ThemeProvider";
 import Courses from "./pages/student/Courses";
 import MyLearning from "./pages/student/MyLearning";
-import { Profiler } from "react";
 import Profile from "./pages/student/Profile";
 
 const appRouter = createBrowserRouter([
