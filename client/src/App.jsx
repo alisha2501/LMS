@@ -7,6 +7,7 @@ import { ThemeProvider } from "./components/ui/ThemeProvider";
 import Courses from "./pages/student/Courses";
 import MyLearning from "./pages/student/MyLearning";
 import Profile from "./pages/student/Profile";
+import { Sidebar } from "lucide-react";
 
 const appRouter = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const appRouter = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />
+      },
+      //admin
+      {
+        path: "admin",
+        element:<Sidebar/>
       }
     ],
   },
