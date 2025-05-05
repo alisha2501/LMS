@@ -15,6 +15,7 @@ import { Loader2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { courseApi } from "@/features/api/courseApi";
 
 const AddCourse = () => {
   const [courseTitle, setCourseTitle] = useState("");
